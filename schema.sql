@@ -1,10 +1,10 @@
-DROP DATABASE IF EXISTS employee_DB;
+DROP DATABASE IF EXISTS staff_DB;
 
-CREATE DATABASE employee_DB;
+CREATE DATABASE staff_DB;
 
-USE employee_DB;
+USE staff_DB;
 
-CREATE TABLE employees (
+CREATE TABLE staff (
   id INTEGER AUTO_INCREMENT,
   first_name VARCHAR(30),
   last_name VARCHAR (30),
@@ -25,6 +25,6 @@ CREATE TABLE departments (
   PRIMARY KEY (id)
 );
 
-SELECT * FROM employees;
+SELECT * FROM staff;
 SELECT * FROM roles;
 SELECT * FROM departments;
