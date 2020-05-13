@@ -1,17 +1,17 @@
-# Employee Tracker
+# Staff Tracker
 
-A command-line application for managing a company's employees using node, inquirer, and MySQL
+A command-line application for managing a company's staff using node, inquirer, and MySQL
 
 ## User Story
-As a business owner, I want to be able to view and manage the departments, roles, and employees in my company so that I can organize and plan my business
+As a business owner, I want to be able to view and manage the departments, roles, and staff in my company so that I can organize and plan my business
 
 ## Overall Concept
 
 The user will be able to :
 
 <ul> 
-<li>Add departments, roles, and employees</li>
-<li>View departments, roles, employees</li>
+<li>Add departments, roles, and staff</li>
+<li>View departments, roles, staff</li>
 <li>Update employee roles</li>
 </ul>
 
@@ -35,6 +35,6 @@ The user will be able to :
 ## Link
 
 Below is the link to the app.
-https://ellevpark.github.io/Employee-Tracker/
+https://kane-r.github.io/SraffTracker/
 
 
