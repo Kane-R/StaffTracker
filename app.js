@@ -11,7 +11,7 @@ const connection = mysql.createConnection({
   user: "root",
 
   password: "Bootcamp!",
-  database: "employee_DB"
+  database: "staff_DB"
 });
 
 connection.connect(function(err) {
@@ -286,6 +286,3 @@ function(err,res){
 }
 )
 }
-
-
-
