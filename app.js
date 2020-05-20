@@ -5,12 +5,12 @@ const connection = mysql.createConnection({
   host: "localhost",
 
   // Your port;
-  port: 3306,
+  port: 8080,
 
   // Your username
   user: "root",
 
-  password: "Bootcamp!",
+  password: "root",
   database: "staff_DB"
 });
 
@@ -28,14 +28,14 @@ function start(){
       message: "What would you like to do?",
       name: "start",
       choices: [
-      "Add Employee", 
-      "View all Employees", 
-      "Remove Employee",
+      "Add staff", 
+      "View all staff", 
+      "Remove staff",
       "Add Department", 
       "View all Departments",
       "Add Roles", 
       "View all Roles", 
-      "Update Employee Role", 
+      "Update staff Role", 
       "Exit"
     ]
     }
@@ -43,16 +43,16 @@ function start(){
   .then (function(res){
     switch (res.start){
 
-      case "Add Employee":
-      addEmployee();
+      case "Add staff":
+      addstaff();
       break;
      
-      case "View all Employees":
-      viewAllEmployees();
+      case "View all staff":
+      viewAllstaff();
       break; 
 
-      case "Remove Employee": 
-      removeEmployee(); 
+      case "Remove staff": 
+      removestaff(); 
       break;
     
       case "Add Department": 
@@ -71,8 +71,8 @@ function start(){
       viewAllRoles(); 
       break;
     
-      case "Update Employee Role":
-      updateEmployeeRole(); 
+      case "Update staff Role":
+      updatestaffRole(); 
       break;
 
       case "Exit":
@@ -82,8 +82,8 @@ function start(){
   })
 }
 
-function addEmployee() {
-console.log("Inserting a new employee.\n");
+function addstaff() {
+console.log("Inserting a new staff.\n");
 inquirer 
   .prompt ([ 
     {
@@ -98,7 +98,7 @@ inquirer
     },
     {
       type: "list",
-      message: "What is the employee's role?",
+      message: "What is the staff's role?",
       name: "role_id", 
       choices: [1,2,3]
     },
@@ -110,20 +110,20 @@ inquirer
   ])
   .then (function(res){
     const query = connection.query(
-      "INSERT INTO employees SET ?", 
+      "INSERT INTO staff SET ?", 
      res,
       function(err, res) {
         if (err) throw err;
-        console.log( "Employee added!\n");
+        console.log( "staff added!\n");
 
         start (); 
       }
     );    
   })
 }
-function viewAllEmployees() {
+function viewAllstaff() {
 
-  connection.query("SELECT employees.first_name, employees.last_name, roles.title AS \"role\", managers.first_name AS \"manager\" FROM employees LEFT JOIN roles ON employees.role_id = roles.id LEFT JOIN employees managers ON employees.manager_id = managers.id GROUP BY employees.id",  
+  connection.query("SELECT staff.first_name, staff.last_name, roles.title AS \"role\", managers.first_name AS \"manager\" FROM staff LEFT JOIN roles ON staff.role_id = roles.id LEFT JOIN staff managers ON staff.manager_id = managers.id GROUP BY staff.id",  
   function(err, res) {
     if (err) throw err;
     // Log all results of the SELECT statement
@@ -132,29 +132,29 @@ function viewAllEmployees() {
   });
 }
 
-function removeEmployee(){
-  let employeeList = [];
+function removestaff(){
+  let staffList = [];
   connection.query(
-    "SELECT employees.first_name, employees.last_name FROM employees", (err,res) => {
+    "SELECT staff.first_name, staff.last_name FROM staff", (err,res) => {
       for (let i = 0; i < res.length; i++){
-        employeeList.push(res[i].first_name + " " + res[i].last_name);
+        staffList.push(res[i].first_name + " " + res[i].last_name);
       }
   inquirer 
   .prompt ([ 
     {
       type: "list", 
-      message: "Which employee would you like to delete?",
-      name: "employee",
-      choices: employeeList
+      message: "Which staff would you like to delete?",
+      name: "staff",
+      choices: staffList
 
     },
   ])
   .then (function(res){
     const query = connection.query(
-      `DELETE FROM employees WHERE concat(first_name, ' ' ,last_name) = '${res.employee}'`,
+      `DELETE FROM staff WHERE concat(first_name, ' ' ,last_name) = '${res.staff}'`,
         function(err, res) {
         if (err) throw err;
-        console.log( "Employee deleted!\n");
+        console.log( "staff deleted!\n");
      start();
     });
     });
@@ -251,22 +251,22 @@ function viewAllRoles(){
   )
   }
 
-function updateEmployeeRole(){
+function updatestaffRole(){
 ​
-connection.query("SELECT first_name, last_name, id FROM employees",
+connection.query("SELECT first_name, last_name, id FROM staff",
 function(err,res){
   // for (let i=0; i <res.length; i++){
-  //   employees.push(res[i].first_name + " " + res[i].last_name);
+  //   staff.push(res[i].first_name + " " + res[i].last_name);
   // }
-  let employees = res.map(employee => ({name: employee.first_name + " " + employee.last_name, value: employee.id}))
+  let staff = res.map(staff => ({name: staff.first_name + " " + staff.last_name, value: staff.id}))
 ​
   inquirer
   .prompt([
     {
       type: "list",
-      name: "employeeName",
-      message: "Which employee's role would you like to update?", 
-      choices: employees
+      name: "staffName",
+      message: "Which staff's role would you like to update?", 
+      choices: staff
     },
     {
       type: "input",
@@ -275,7 +275,7 @@ function(err,res){
     }
   ])
   .then (function(res){
-    connection.query(`UPDATE employees SET role_id = ${res.role} WHERE id = ${res.employeeName}`,
+    connection.query(`UPDATE staff SET role_id = ${res.role} WHERE id = ${res.staffName}`,
     function (err, res){
       console.log(res);
       //updateRole(res);
