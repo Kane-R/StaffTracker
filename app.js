@@ -43,13 +43,13 @@ function getQueryType(){
           name: "querytype",
           message: "Which type of query do you want to run?",
           choices: [
-            "1. Add data to the STAFFTRACKER",
-            "2. View data in the STAFFTRACKER",
+            "1. Add data to the StaffTracker database",
+            "2. View data in the StaffTracker database",
             "3. Update staff roles",
             // "4. Update an staff's manager", //Not yet defined
             "5. View staff by manager",
             //"6. Delete data", //Not yet defined
-            "7. View the total utilized budget of a department", 
+            "7. View the total staff salaries overhead", 
             "8. Exit"
           ]
         } 
