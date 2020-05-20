@@ -2,6 +2,8 @@
 
 A command-line application for managing a company's staff using node, inquirer, and MySQL
 
+Go here: [App Being Run.mp4](https://github.com/Kane-R/StaffTracker/blob/master/App%20Being%20Run.mp4) and download the "App Being Run.mp4" (by clicking the "View raw" link)
+
 ## User Story
 As a business owner, I want to be able to view and manage the departments, roles, and staff in my company so that I can organize and plan my business
 
