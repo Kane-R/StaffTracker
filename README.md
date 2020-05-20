@@ -32,9 +32,3 @@ The user will be able to :
 
 </ol>
 
-## Link
-
-Below is the link to the app.
-https://kane-r.github.io/SraffTracker/
-
-
