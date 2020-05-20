@@ -13,21 +13,26 @@ The user will be able to :
 <li>Add departments, roles, and staff</li>
 <li>View departments, roles, staff</li>
 <li>Update employee roles</li>
+<li>Update employee roles</li>
 </ul>
 
 ## Technologies Used
 
 <ul>
 <li>Javascript</li>
-<li>Bootstrap</li>
-<li>IMBD API</li>
-<li>jQuery</li>
+<li>Node.js</li>
+<li>NPM</li>
+<li>NPM - inquirer</li>
+<li>NPM - mysql</li>
+<li>NPM - console</li>
 </ul>
 
 ## How to use
 
 <ol>
-<li>Run seed file in MySQL Workbench or an equivalent if you would like starting data </li>
+<li>clone or download repository to local machine</li>
+<li>Install NPM and NPM depenencies: mysql, console, inquirer</li>
+<li>Run schema.sql file in MySQL Workbench</li>
 <li>Run node app.js in your terminal to start the application</li>
 
 </ol>
