@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/ellevpark/HW-12#readme",
   "dependencies": {
+    "console": "^0.7.2",
     "console.table": "^0.10.0",
     "inquirer": "^7.1.0",
     "mysql": "^2.18.1"

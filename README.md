@@ -28,7 +28,6 @@ The user will be able to :
 
 <ol>
 <li>Run seed file in MySQL Workbench or an equivalent if you would like starting data </li>
-<li>Run node index.js in your terminal to start the application</li>
+<li>Run node app.js in your terminal to start the application</li>
 
 </ol>
-
